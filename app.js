@@ -11,6 +11,10 @@ app.use(express.json({ limit: '52428800' }));
 const cors = require('cors');
 var ip = require('ip');
 const ipAddress = ip.address();
+const homeRouter = require('./routers/homeRouter');
+const aboutUs = require('./routers/aboutUsRouter');
+const contactUs = require('./routers/contactUsRouter');
+
 //////////////////
 
 app.get(helmet());
@@ -55,6 +59,10 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/home', homeRouter);
+app.use('/api/v1/aboutUs', aboutUs);
+app.use('/api/v1/contactUs', contactUs);
+
 // app.use('/api/v1/images', imageRoute);
 app.use(express.static('images'));
 

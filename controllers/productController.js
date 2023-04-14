@@ -7,9 +7,7 @@ exports.getAllProducts = async (req, res) => {
 
     res.status(201).json({
       status: 'success',
-      data: {
-        User: newProduct,
-      },
+      data: newProduct,
     });
   } catch (err) {
     res.status(500).json({ err });
@@ -23,9 +21,7 @@ exports.createProduct = async (req, res) => {
     const newProduct = await product.create(req.body);
     res.status(201).json({
       status: 'success',
-      data: {
-        User: newProduct,
-      },
+      data: newProduct,
     });
   } catch (err) {
     res.status(500).json({ err });
@@ -39,9 +35,7 @@ exports.getProductByID = async (req, res) => {
     const newProduct = await product.findById(req.params.id);
     res.status(201).json({
       status: 'success',
-      data: {
-        User: newProduct,
-      },
+      data: newProduct,
     });
   } catch (err) {
     res.status(500).json({ err });
@@ -62,9 +56,7 @@ exports.updateProduct = async (req, res) => {
     );
     res.status(201).json({
       status: 'success',
-      data: {
-        User: newProduct,
-      },
+      data: newProduct,
     });
     // console.log('Update Req: ', req);
   } catch (err) {

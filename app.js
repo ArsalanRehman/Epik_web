@@ -12,8 +12,8 @@ const cors = require('cors');
 var ip = require('ip');
 const ipAddress = ip.address();
 const homeRouter = require('./routers/homeRouter');
-const aboutUs = require('./routers/aboutUsRouter');
-const contactUs = require('./routers/contactUsRouter');
+const aboutUsRouter = require('./routers/aboutUsRouter');
+const contactUsRouter = require('./routers/contactUsRouter');
 
 //////////////////
 
@@ -60,8 +60,8 @@ app.use('/api', limiter);
 
 app.use('/api/v1/products', productRouter);
 app.use('/api/v1/home', homeRouter);
-app.use('/api/v1/aboutUs', aboutUs);
-app.use('/api/v1/contactUs', contactUs);
+app.use('/api/v1/aboutUs', aboutUsRouter);
+app.use('/api/v1/contactUs', contactUsRouter);
 
 // app.use('/api/v1/images', imageRoute);
 app.use(express.static('images'));

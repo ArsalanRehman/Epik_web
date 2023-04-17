@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const pageSchema = mongoose.Schema({
-  name: String,
+  category: String,
   heading: String,
   content: String,
 });

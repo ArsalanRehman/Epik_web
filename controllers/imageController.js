@@ -24,7 +24,7 @@ exports.uploadImage = async (req, res) => {
   try {
     image = req.file;
     // const filename = `map.${image.mimetype.split('/')[1]}`;
-    const filename = `${req.filename}`;
+    const filename = `${image.originalname}`;
 
     console.log(filename);
 

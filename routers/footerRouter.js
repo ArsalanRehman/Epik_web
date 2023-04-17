@@ -1,16 +1,16 @@
 const express = require('express');
-const homeController = require('../controllers/homeController');
+const footerController = require('../controllers/footerController');
 const router = express.Router();
 
 router
   .route('/')
-  .get(homeController.getAllHomePageContent)
-  .post(homeController.createHomePageContent);
+  .get(footerController.getAllContent)
+  .post(footerController.createContent);
 
 router
   .route('/:id')
-  .get(homeController.getHomePageContentById)
-  .patch(homeController.updateHomePageContent)
-  .delete(homeController.deleteHomePageContent);
+  .get(footerController.getlContentById)
+  .patch(footerController.updateContent)
+  .delete(footerController.deleteContent);
 
 module.exports = router;

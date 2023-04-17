@@ -5,7 +5,6 @@ const rateLimit = require('express-rate-limit');
 const productRouter = require('./routers/productRouter');
 const globalErrorHandler = require('./controllers/errorControler');
 const AppError = require('./utils/appError');
-// const imageRoute = require('./routers/imageRouter');
 const app = express();
 app.use(express.json({ limit: '52428800' }));
 const cors = require('cors');
@@ -14,6 +13,8 @@ const ipAddress = ip.address();
 const homeRouter = require('./routers/homeRouter');
 const aboutUsRouter = require('./routers/aboutUsRouter');
 const contactUsRouter = require('./routers/contactUsRouter');
+const footerRouter = require('./routers/footerRouter');
+const imageRouter = require('./routers/imageRouter');
 
 //////////////////
 
@@ -62,9 +63,10 @@ app.use('/api/v1/products', productRouter);
 app.use('/api/v1/home', homeRouter);
 app.use('/api/v1/aboutUs', aboutUsRouter);
 app.use('/api/v1/contactUs', contactUsRouter);
-
-// app.use('/api/v1/images', imageRoute);
+app.use('/api/v1/footer', footerRouter);
+app.use('/api/v1/images', imageRouter);
 app.use(express.static('images'));
+
 
 app.all('*', (req, res, next) => {
   next(new AppError(`${req.originalUrl} bulunmamaktadir`, 404));
